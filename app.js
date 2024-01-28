@@ -1,6 +1,15 @@
+const colors = require("colors");
+
+const path = require("path");
+const configPath = path.join(__dirname, "config", ".env");
+require("dotenv").config({ path: configPath });
+
+const connectDB = require("./config");
 const express = require("express");
 const morgan = require("morgan");
 const cors = require("cors");
+
+const { PORT = 3000, DB_HOST } = process.env;
 
 const contactsRouter = require("./routes/contactsRouter.js");
 
@@ -21,6 +30,7 @@ app.use((err, req, res, next) => {
   res.status(status).json({ message });
 });
 
-app.listen(3000, () => {
-  console.log("Server is running. Use our API on port: 3000");
+connectDB(DB_HOST);
+app.listen(PORT, () => {
+  console.log("Server is running. Use our API on port: 3000".green.bold);
 });
