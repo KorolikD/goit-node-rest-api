@@ -6,7 +6,7 @@ const {
   createContact,
   updateContact,
   updateStatusContact,
-} = require("../controllers");
+} = require("../controllers/contacts");
 const { validateBody, isValidId } = require("../middlewares");
 const {
   createContactSchema,
