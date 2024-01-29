@@ -4,7 +4,7 @@ const connectDB = async (DB_HOST) => {
   try {
     const db = await connect(DB_HOST);
     console.log(
-      `DB is connected.
+      `Database connection successful.
         Name: ${db.connection.name}.
         Port: ${db.connection.port}.
         Host: ${db.connection.host}.`.green.bold
