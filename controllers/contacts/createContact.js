@@ -1,4 +1,3 @@
-const { ctrlWrapper } = require("../../helpers");
 const Contact = require("../../models");
 
 const createContact = async (req, res) => {
@@ -7,4 +6,4 @@ const createContact = async (req, res) => {
   res.status(201).json(result);
 };
 
-module.exports = ctrlWrapper(createContact);
+module.exports = createContact;

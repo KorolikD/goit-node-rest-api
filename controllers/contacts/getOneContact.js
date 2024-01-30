@@ -1,4 +1,4 @@
-const { HttpError, ctrlWrapper } = require("../../helpers");
+const { HttpError } = require("../../helpers");
 const Contact = require("../../models");
 
 const getOneContact = async (req, res) => {
@@ -12,4 +12,4 @@ const getOneContact = async (req, res) => {
   res.json(result);
 };
 
-module.exports = ctrlWrapper(getOneContact);
+module.exports = getOneContact;
