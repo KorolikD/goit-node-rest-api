@@ -4,7 +4,11 @@ const {
   updateStatusContactSchema,
 } = require("./contactsSchemas");
 
-const { registerSchema, loginSchema } = require("./authSchemas");
+const {
+  registerSchema,
+  loginSchema,
+  subscriptionSchema,
+} = require("./authSchemas");
 
 module.exports = {
   createContactSchema,
@@ -12,4 +16,5 @@ module.exports = {
   updateStatusContactSchema,
   registerSchema,
   loginSchema,
+  subscriptionSchema,
 };
