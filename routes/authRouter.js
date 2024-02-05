@@ -1,10 +1,5 @@
-const {
-  registration,
-  login,
-  getCurrent,
-  logout,
-  updateSubscription,
-} = require("../controllers/auth");
+const { registration, login, logout } = require("../controllers/auth");
+const { getCurrent, updateSubscription } = require("../controllers/user");
 const { validateBody, authenticate } = require("../middlewares");
 const {
   registerSchema,
