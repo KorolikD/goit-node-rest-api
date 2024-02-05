@@ -5,7 +5,6 @@ const updateSubscription = async (req, res) => {
   const { subscription } = req.body;
 
   const result = await User.findByIdAndUpdate(_id, { subscription });
-  console.log("🤬>>>  result:\n", result);
 
   res.json({ email, subscription });
 };
