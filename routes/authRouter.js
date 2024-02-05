@@ -1,14 +1,20 @@
-const { validateBody } = require("../middlewares");
+const {
+  registration,
+  login,
+  getCurrent,
+  logout,
+} = require("../controllers/auth");
+const { validateBody, authenticate } = require("../middlewares");
 const { registerSchema, loginSchema } = require("../schemas");
 
 const authRouter = require("express").Router();
 
-authRouter.post("/register", validateBody(registerSchema));
+authRouter.post("/register", validateBody(registerSchema), registration);
 
-authRouter.post("/login", validateBody(loginSchema));
+authRouter.post("/login", validateBody(loginSchema), login);
 
-authRouter.post("/logout");
+authRouter.post("/logout", authenticate, logout);
 
-authRouter.get("/current");
+authRouter.get("/current", authenticate, getCurrent);
 
 module.exports = authRouter;
