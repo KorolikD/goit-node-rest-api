@@ -1,6 +1,10 @@
 const { registration, login, logout } = require("../controllers/auth");
-const { getCurrent, updateSubscription } = require("../controllers/user");
-const { validateBody, authenticate } = require("../middlewares");
+const {
+  getCurrent,
+  updateSubscription,
+  updateAvatar,
+} = require("../controllers/user");
+const { validateBody, authenticate, upload } = require("../middlewares");
 const {
   registerSchema,
   loginSchema,
@@ -14,6 +18,13 @@ authRouter.post("/register", validateBody(registerSchema), registration);
 authRouter.post("/login", validateBody(loginSchema), login);
 
 authRouter.post("/logout", authenticate, logout);
+
+authRouter.patch(
+  "/avatars",
+  authenticate,
+  upload.single("avatar"),
+  updateAvatar
+);
 
 authRouter.get("/current", authenticate, getCurrent);
 
