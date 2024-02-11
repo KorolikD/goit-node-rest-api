@@ -19,13 +19,6 @@ authRouter.post("/login", validateBody(loginSchema), login);
 
 authRouter.post("/logout", authenticate, logout);
 
-authRouter.patch(
-  "/avatars",
-  authenticate,
-  upload.single("avatar"),
-  updateAvatar
-);
-
 authRouter.get("/current", authenticate, getCurrent);
 
 authRouter.patch(
@@ -33,6 +26,13 @@ authRouter.patch(
   authenticate,
   validateBody(subscriptionSchema),
   updateSubscription
+);
+
+authRouter.patch(
+  "/avatars",
+  authenticate,
+  upload.single("avatar"),
+  updateAvatar
 );
 
 module.exports = authRouter;
