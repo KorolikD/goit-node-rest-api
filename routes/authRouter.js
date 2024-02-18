@@ -3,10 +3,13 @@ const {
   getCurrent,
   updateSubscription,
   updateAvatar,
+  verifyEmail,
+  resendVerifyEmail,
 } = require("../controllers/user");
 const { validateBody, authenticate, upload } = require("../middlewares");
 const {
   registerSchema,
+  emailSchema,
   loginSchema,
   subscriptionSchema,
 } = require("../schemas");
@@ -14,6 +17,9 @@ const {
 const authRouter = require("express").Router();
 
 authRouter.post("/register", validateBody(registerSchema), registration);
+
+authRouter.get("/verify/:verificationToken", verifyEmail);
+authRouter.post("/verify/", validateBody(emailSchema), resendVerifyEmail);
 
 authRouter.post("/login", validateBody(loginSchema), login);
 
