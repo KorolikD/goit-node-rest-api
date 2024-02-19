@@ -1,4 +1,5 @@
-const { HttpError, sendEmail } = require("../../helpers");
+const { HttpError } = require("../../helpers");
+const { sendEmail } = require("../../services");
 const { User } = require("../../models");
 
 const { BASE_URL } = process.env;

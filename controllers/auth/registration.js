@@ -1,9 +1,10 @@
 const { User } = require("../../models");
 const { HttpError } = require("../../helpers");
+const { sendEmail } = require("../../services");
 const bcrypt = require("bcryptjs");
 const gravatar = require("gravatar");
 const { v4: uuid } = require("uuid");
-const { sendEmail } = require("../../helpers");
+
 const { BASE_URL } = process.env;
 
 const registration = async (req, res) => {
